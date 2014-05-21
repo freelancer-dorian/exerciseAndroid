@@ -1,18 +1,23 @@
 package com.dorian.list;
 
+
 import android.app.Activity;
-import android.app.ActionBar;
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.os.Build;
+import android.widget.Button;
+
 
 public class MainActivity extends Activity {
 
+	
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +28,7 @@ public class MainActivity extends Activity {
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
+        
     }
 
 
@@ -58,6 +64,39 @@ public class MainActivity extends Activity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+            Button b = (Button) rootView.findViewById(R.id.button1);
+            b.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					Intent intent = new Intent();
+					intent.setClass((MainActivity)(getActivity()), adapterList.class);
+					startActivity(intent);
+				}
+			});
+            
+            Button b2 = (Button) rootView.findViewById(R.id.button2);
+            b2.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					Intent intent = new Intent();
+					intent.setClass((MainActivity)(getActivity()), simpleCursorAdapter.class);
+					startActivity(intent);
+				}
+			});
+            
+            Button b3 = (Button) rootView.findViewById(R.id.button3);
+            b3.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					Intent intent = new Intent();
+					intent.setClass((MainActivity)(getActivity()), simpleAdapter.class);
+					startActivity(intent);
+				}
+			});
+            
             return rootView;
         }
     }

@@ -1,0 +1,62 @@
+package com.dorian.list;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
+import android.widget.Toast;
+
+public class simpleAdapter extends Activity {
+	
+	private ListView lv;
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		
+		
+		ArrayList<HashMap<String,String>> list=new ArrayList<HashMap<String,String>>();  
+        HashMap<String,String> map1=new HashMap<String,String>();  
+        HashMap<String,String> map2=new HashMap<String,String>();  
+        HashMap<String,String> map3=new HashMap<String,String>();
+        map1.put("name", "凝墨");  
+        map1.put("phone", "13699452790");  
+        map2.put("name", "小棕");  
+        map2.put("phone", "15827980910");  
+        map3.put("name", "花郎");  
+        map3.put("phone", "18678091166");  
+
+        
+        list.add(map1);
+        list.add(map2);
+        list.add(map3);
+        
+		SimpleAdapter listAdapter=new SimpleAdapter(this,  
+                list,  
+                R.layout.info,  
+                new String[] {"name","phone"},  
+                new int[] {R.id.name,R.id.phone}); 
+		
+		
+		lv = new ListView(this);
+		lv.setAdapter(listAdapter);
+		lv.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				Toast toast;
+				Toast.makeText(getApplicationContext(), "我是凝墨", Toast.LENGTH_SHORT).show();
+			}
+		});
+		
+		
+		setContentView(lv);
+	}
+}
