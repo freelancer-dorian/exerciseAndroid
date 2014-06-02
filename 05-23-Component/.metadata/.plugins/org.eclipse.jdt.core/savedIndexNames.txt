@@ -1,0 +1,1 @@
+INDEX VERSION 1.126+/Users/wanghui/dev/github/exerciseAndroid/05-23-Component/.metadata/.plugins/org.eclipse.jdt.core

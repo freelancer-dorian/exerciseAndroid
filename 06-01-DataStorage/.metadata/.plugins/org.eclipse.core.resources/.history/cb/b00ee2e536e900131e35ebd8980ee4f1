@@ -1,0 +1,134 @@
+package com.dorian.filetest;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import android.app.Activity;
+import android.app.ActionBar;
+import android.app.Fragment;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
+import android.os.Build;
+
+public class MainActivity extends Activity {
+
+	private String FILE_NAME = "secret.txt";
+	
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        if (savedInstanceState == null) {
+            getFragmentManager().beginTransaction()
+                    .add(R.id.container, new PlaceholderFragment())
+                    .commit();
+        }
+    }
+
+    public void write(String content) throws IOException {
+	
+		FileOutputStream fos = openFileOutput(FILE_NAME, MODE_APPEND);
+		byte[] buffer = content.getBytes();
+		fos.write(buffer);
+		
+		fos.close();
+    }
+    
+    public String read() throws IOException {
+    	String content = "";
+    	FileInputStream fis = openFileInput(FILE_NAME);
+    	byte[] buffer = new byte[1024];
+    	int iRead = 0;
+    	StringBuilder sb = new StringBuilder("");
+    	
+    	while ((iRead = fis.read(buffer)) > 0 ) {
+    		sb.append(new String(buffer, 0, iRead));
+    	}
+    	
+    	fis.close();
+    	content = sb.toString();
+    	
+    	return content;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    /**
+     * A placeholder fragment containing a simple view.
+     */
+    public static class PlaceholderFragment extends Fragment {
+
+        public PlaceholderFragment() {
+        }
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                Bundle savedInstanceState) {
+            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+            TextView tv = (TextView) rootView.findViewById(R.id.text_view1);
+            final TextView waiting = (TextView) rootView.findViewById(R.id.text_view2);
+            
+            String content = tv.getText().toString();
+            try {
+				((MainActivity)getActivity()).write(content);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+            
+            Button read = (Button) rootView.findViewById(R.id.button1);
+            read.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					String text = "";
+					try {
+						text = ((MainActivity)getActivity()).read();
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+					
+					waiting.setText(text);
+				}
+			});
+            
+            Button write = (Button) rootView.findViewById(R.id.button2);
+            write.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					
+				}
+			});
+            return rootView;
+        }
+    }
+
+}

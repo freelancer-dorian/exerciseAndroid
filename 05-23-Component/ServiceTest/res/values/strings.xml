@@ -1,0 +1,7 @@
+<resources>
+
+    <string name="app_name">ServiceTest</string>
+	<string name="service_bound">Service has bounded!!</string>
+	<string name="service_start">Service Started!!</string>
+	<string name="service_destroy">Service Destroyed!!</string>
+</resources>
