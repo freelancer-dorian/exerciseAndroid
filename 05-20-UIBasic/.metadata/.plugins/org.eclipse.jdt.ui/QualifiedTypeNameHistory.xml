@@ -3,6 +3,22 @@
 <fullyQualifiedTypeName name="com.dorian.buttons.R.id"/>
 <fullyQualifiedTypeName name="android.view.View.OnLongClickListener"/>
 <fullyQualifiedTypeName name="android.util.Log"/>
-<fullyQualifiedTypeName name="android.widget.TextView"/>
+<fullyQualifiedTypeName name="android.widget.ArrayAdapter"/>
+<fullyQualifiedTypeName name="android.widget.Button"/>
+<fullyQualifiedTypeName name="com.dorian.list.adapterList"/>
+<fullyQualifiedTypeName name="android.widget.SimpleCursorAdapter"/>
 <fullyQualifiedTypeName name="android.view.View.OnClickListener"/>
+<fullyQualifiedTypeName name="com.dorian.list.MainActivity"/>
+<fullyQualifiedTypeName name="com.dorian.list.simpleCursorAdapter"/>
+<fullyQualifiedTypeName name="android.support.v4.widget.CursorAdapter"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="android.widget.SimpleAdapter"/>
+<fullyQualifiedTypeName name="com.dorian.list.simpleAdapter"/>
+<fullyQualifiedTypeName name="android.app.ListActivity"/>
+<fullyQualifiedTypeName name="android.widget.ListView"/>
+<fullyQualifiedTypeName name="com.dorian.list.R.layout"/>
+<fullyQualifiedTypeName name="android.widget.AdapterView.OnItemClickListener"/>
+<fullyQualifiedTypeName name="android.widget.Toast"/>
+<fullyQualifiedTypeName name="android.widget.TextView"/>
 </qualifiedTypeNameHistroy>
