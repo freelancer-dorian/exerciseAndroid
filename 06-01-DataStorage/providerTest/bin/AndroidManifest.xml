@@ -15,7 +15,7 @@
         
         <provider 
             android:name=".FirstProvider"
-            android:authorities="com.dorian.providers.firstprovider"
+            android:authorities="providerTest.firstprovider"
             android:exported="true"
             />
     </application>

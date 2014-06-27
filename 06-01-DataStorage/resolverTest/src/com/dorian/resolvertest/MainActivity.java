@@ -19,7 +19,9 @@ import android.widget.Toast;
 import android.os.Build;
 
 public class MainActivity extends Activity {
-
+	
+	static ContentResolver resolver;
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +32,7 @@ public class MainActivity extends Activity {
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
+        resolver = getContentResolver();
     }
 
 
@@ -58,8 +61,8 @@ public class MainActivity extends Activity {
      */
     public static class PlaceholderFragment extends Fragment {
 
-    	ContentResolver resolver;
-    	Uri uri = Uri.parse("content://com.dorian.providers.firstprovider/");
+    	
+    	Uri uri = Uri.parse("content://providerTest.firstprovider/");
     	
         public PlaceholderFragment() {
         }
@@ -73,6 +76,7 @@ public class MainActivity extends Activity {
             Button insert = (Button) rootView.findViewById(R.id.insert);
             Button update = (Button) rootView.findViewById(R.id.update);
             Button delete = (Button) rootView.findViewById(R.id.delete);
+            
             
             query.setOnClickListener(new OnClickListener() {
 				
