@@ -1,0 +1,8 @@
+INDEX VERSION 1.126+/Users/wanghui/dev/github/exerciseAndroid/demos/.metadata/.plugins/org.eclipse.jdt.core
+3016681441.index
+2001558908.index
+1418804365.index
+3160179180.index
+3297344401.index
+3279514211.index
+1074644978.index

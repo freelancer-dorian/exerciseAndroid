@@ -1,0 +1,40 @@
+package com.dorian.sqltest;
+
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+
+public class MyDBHelper{
+
+	private static String m_sDBName = "test.db";
+	private static int m_iVersion = 1;
+	private DatabaseHelper m_dbHelper = null;
+	private SQLiteDatabase mDB;
+	
+	MyDBHelper() {
+		// TODO
+	}
+	
+	
+	
+	private static class DatabaseHelper extends SQLiteOpenHelper {
+
+		public DatabaseHelper(Context context) {
+			super(context, m_sDBName, null, m_iVersion);
+		}
+
+		@Override
+		public void onCreate(SQLiteDatabase db) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+	}
+	
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">PointList</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <!-- Main Activity Screen -->
+    <string name="main_act_query">查看</string>
+	<string name="main_act_add">追加</string>
+	<string name="main_act_modify">修改</string>
+	<string name="main_act_delete">删除</string>
+    <!-- Query Type Screen -->
+    <string name="query_type_title">查看类型</string>
+	<string name="query_type_list">列表</string>
+	<string name="query_type_map">地图</string>
+	
+</resources>

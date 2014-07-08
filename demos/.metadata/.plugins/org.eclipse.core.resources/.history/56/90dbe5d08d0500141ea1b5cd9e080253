@@ -1,0 +1,32 @@
+package com.dorian.sqltest;
+
+import android.app.Activity;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.os.Bundle;
+import android.widget.TextView;
+
+public class SQLite extends Activity{
+	class Person {
+		String name;
+		int age;
+		
+		Person() {
+			name = "";
+			age = 1;
+		}
+	}
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		
+		SQLiteDatabase db = openOrCreateDatabase("test.db", Context.MODE_PRIVATE, null);
+		db.execSQL("drop table if exists person");
+		
+		String[]  Sqls = {"create table person (_id integer primary key autoincrement, name varchar, age smallint)",
+							"insert into person values (null,?,?)"};
+		db.execSQL(Sqls[0]);
+		Person person = new Person();
+	}
+}

@@ -1,0 +1,48 @@
+package com.dorian.pointlist;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.TextView;
+
+public class PointList extends Activity {
+	final int TYPE_INVALID = -1;
+	final int TYPE_QUERY = 0;
+	final int TYPE_MODIFY = 1;
+	final int TYPE_DELETE = 2;
+
+	private int mType = TYPE_INVALID;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.point_list);
+
+		showTitle();
+
+	}
+
+	private void showTitle() {
+
+		TextView tv = (TextView) findViewById(R.id.title);
+		// set title according to mType
+		String title = "";
+		switch (mType) {
+			case TYPE_INVALID:
+				title = "invalid type";
+				break;
+			case TYPE_QUERY:
+				title = getResources().getString(R.string.point_list_title_query);
+				break;
+			case TYPE_MODIFY:
+				title = getResources().getString(R.string.point_list_title_modify);
+				break;
+			case TYPE_DELETE:
+				title = getResources().getString(R.string.point_list_title_delete);
+				break;
+			default:
+				break;
+		}
+		tv.setText(title);
+
+	}
+}

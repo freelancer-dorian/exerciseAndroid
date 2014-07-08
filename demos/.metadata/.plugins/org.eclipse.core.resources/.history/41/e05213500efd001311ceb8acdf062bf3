@@ -1,0 +1,31 @@
+package com.dorian.pointlist;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.TextView;
+
+public class PointList extends Activity {
+	final int TYPE_INVALID = -1;
+	final int TYPE_QUERY = 0;
+	final int TYPE_MODIFY = 1;
+	final int TYPE_DELET = 2;
+	
+	private int mType = TYPE_INVALID;
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.point_list);
+		
+		showTitle();
+	
+	}
+	
+	private void showTitle() {
+		
+		TextView tv = (TextView) findViewById(R.id.title);
+		// 
+		tv.setText(text);
+		
+	}
+}

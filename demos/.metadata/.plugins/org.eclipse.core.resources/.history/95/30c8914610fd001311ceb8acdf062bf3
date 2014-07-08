@@ -1,0 +1,10 @@
+package com.dorian.pointlist;
+
+public final class CommonDefinitions {
+	public final int TYPE_INVALID = -1;
+	public final int TYPE_QUERY = 0;
+	public final int TYPE_MODIFY = 1;
+	public final int TYPE_DELETE = 2;
+
+	 
+}

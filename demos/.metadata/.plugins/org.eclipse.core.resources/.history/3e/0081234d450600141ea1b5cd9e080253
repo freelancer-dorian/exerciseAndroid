@@ -1,0 +1,16 @@
+package com.dorian.pointlist;
+
+import com.baidu.mapapi.SDKInitializer;
+
+import android.app.Activity;
+import android.os.Bundle;
+
+public class HelloMap extends Activity {
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+
+		SDKInitializer.initialize(getApplicationContext());
+	}
+}
